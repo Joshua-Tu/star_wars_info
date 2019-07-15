@@ -8,9 +8,13 @@ class FilmList extends Component {
         {films.map(film => {
           console.log(loading);
           return loading ? (
-            <p key={film.url}>loading...</p>
+            <div key={film.url}>
+              <p>{film.title}</p>
+            </div>
           ) : (
-            <p key={film.url}>{film.title}</p>
+            <div key={film.url}>
+              <p>{film.title}</p>
+            </div>
           );
         })}
       </div>
