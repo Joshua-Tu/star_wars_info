@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import FilmList from "./components/FilmList";
 
 class App extends Component {
   constructor(props) {
@@ -29,13 +30,13 @@ class App extends Component {
 
   render() {
     const { films, loading } = this.state;
-    console.log(films, loading);
-    const comp = films.map(film => {
-      const title = loading ? "loading..." : film.title;
-      return <p key={film.url}>{title}</p>;
-    });
+    //console.log(films, loading);
 
-    return <div className="App">{comp}</div>;
+    return (
+      <div className="App">
+        <FilmList loading={loading} films={films} />
+      </div>
+    );
   }
 }
 export default App;
