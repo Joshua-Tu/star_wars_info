@@ -6,7 +6,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: false,
+      loading: true,
       films: []
     };
 
@@ -24,9 +24,9 @@ class App extends Component {
   //}
 
   componentDidMount() {
-    this.setState({
-      loading: true
-    });
+    // this.setState({
+    //   loading: true
+    // });
 
     //this.getFilms();
 
@@ -42,11 +42,11 @@ class App extends Component {
 
   render() {
     const { films, loading } = this.state;
-    //console.log(films, loading);
+    console.log(films, loading);
 
     return (
       <div className="App">
-        <FilmList loading={loading} films={films} />
+        {loading ? <h3>loading.. </h3> : <FilmList films={films} />}
       </div>
     );
   }
