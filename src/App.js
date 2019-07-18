@@ -46,7 +46,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        {loading ? <h3>loading.. </h3> : <FilmList films={films} />}
+        <FilmList loading={loading} films={films} />
       </div>
     );
   }

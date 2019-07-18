@@ -6,16 +6,24 @@ class FilmList extends Component {
   }
 
   render() {
-    const { films } = this.props;
-    return (
-      <div>
-        {films.map(film => (
-          <div key={film.url} onClick={this.handleFilmClick}>
-            <h3 className="char-name">{film.title}</h3>
-          </div>
-        ))}
-      </div>
-    );
+    const { films, loading } = this.props;
+    if (loading) {
+      return (
+        <div>
+          <h3>Loading...</h3>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          {films.map(film => (
+            <div key={film.url} onClick={this.handleFilmClick}>
+              <h3 className="char-name">{film.title}</h3>
+            </div>
+          ))}
+        </div>
+      );
+    }
   }
 }
 
