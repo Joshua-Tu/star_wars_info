@@ -6,7 +6,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true,
+      loading: false,
       films: []
     };
 
@@ -24,14 +24,14 @@ class App extends Component {
   //}
 
   componentDidMount() {
-    // this.setState({
-    //   loading: true
-    // });
+    this.setState({
+      loading: true
+    });
 
     //this.getFilms();
 
     fetch("https://swapi.co/api/films")
-      .then(response => response.json())
+      .then(res => res.json())
       .then(data => {
         this.setState({
           loading: false,
