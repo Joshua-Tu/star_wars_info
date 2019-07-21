@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-//import Axios from "axios";
+//import axios from "axios";
 import FilmList from "./components/FilmList";
 
 class App extends Component {
@@ -15,7 +15,7 @@ class App extends Component {
 
   //getFilms() {
 
-  // return Axios.get("https://swapi.co/api/films").then(res => {
+  // return axios.get("https://swapi.co/api/films").then(res => {
   //   this.setState({
   //     loading: false,
   //     films: res.data.results
@@ -42,11 +42,12 @@ class App extends Component {
 
   render() {
     const { films, loading } = this.state;
+    const loadingText = <h3>Loading...</h3>;
     console.log(films, loading);
 
     return (
       <div className="App">
-        {loading ? <h3>Loading...</h3> : <FilmList films={films} />}
+        {loading ? loadingText : <FilmList films={films} />}
       </div>
     );
   }

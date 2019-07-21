@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import FilmInfo from "./FilmInfo";
 
 class FilmList extends Component {
   handleFilmClick() {
@@ -12,7 +13,8 @@ class FilmList extends Component {
       <div>
         {films.map(film => (
           <div key={film.url} onClick={this.handleFilmClick}>
-            <h3 className="char-name">{film.title}</h3>
+            <h3 className="film-name">{film.title}</h3>
+            <FilmInfo filmInfo={film} />
           </div>
         ))}
       </div>
