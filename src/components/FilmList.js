@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import FilmInfo from "./FilmInfo";
 
 class FilmList extends Component {
-  handleFilmClick() {
-    console.log("clicked");
-  }
+  handleFavourited = () => {
+    console.log("alert of favourited");
+  };
 
   render() {
     const { films } = this.props;
@@ -12,8 +12,10 @@ class FilmList extends Component {
     return (
       <div>
         {films.map(film => (
-          <div key={film.url} onClick={this.handleFilmClick}>
-            <h3 className="film-name">{film.title}</h3>
+          <div key={film.url}>
+            <h3 className="film-name" onClick={this.handleFavourited}>
+              {film.title}
+            </h3>
             <FilmInfo filmInfo={film} />
           </div>
         ))}
