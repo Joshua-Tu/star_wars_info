@@ -22,7 +22,7 @@ class FilmInfo extends Component {
     if (this.state.expanded) {
       return (
         <>
-          <p className="btn btn-info" onClick={this.toggle}>
+          <p className="btn btn-danger" onClick={this.toggle}>
             Hide Info
           </p>
           <ul>

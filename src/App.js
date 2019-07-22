@@ -7,11 +7,17 @@ class App extends Component {
     super(props);
     this.state = {
       loading: false,
-      films: []
+      films: [],
+      term: ""
     };
-
-    //this.getFilms = this.getFilms.bind(this);
   }
+
+  searchHandler = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
 
   //getFilms() {
 
@@ -41,13 +47,25 @@ class App extends Component {
   }
 
   render() {
-    const { films, loading } = this.state;
+    const { films, loading, term } = this.state;
     const loadingText = <h3>Loading...</h3>;
     console.log(films, loading);
 
     return (
       <div className="App">
-        {loading ? loadingText : <FilmList films={films} />}
+        <form className="container">
+          <label>
+            search
+            <input
+              type="text"
+              name="term"
+              value={term}
+              placeholder="by a film title"
+              onChange={this.searchHandler}
+            />
+          </label>
+        </form>
+        {loading ? loadingText : <FilmList films={films} term={term} />}
       </div>
     );
   }

@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import FilmInfo from "./FilmInfo";
 
+const searchingFor = term => {
+  return x => {
+    return x.title.toLowerCase().inclues(term.toLowerCase()) || !term;
+  };
+};
+
 class FilmList extends Component {
   handleFavourited = () => {
     console.log("alert of favourited");
