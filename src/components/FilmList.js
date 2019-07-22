@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import FilmInfo from "./FilmInfo";
 
-const searchingFor = term => {
-  return x => {
-    return x.title.toLowerCase().includes(term.toLowerCase()) || !term;
-  };
-};
-
 class FilmList extends Component {
   handleFavourited = () => {
     console.log("alert of favourited");
+  };
+
+  searchingFor = term => {
+    return filmx => {
+      return filmx.title.toLowerCase().includes(term.toLowerCase()) || !term;
+    };
   };
 
   render() {
@@ -17,7 +17,7 @@ class FilmList extends Component {
     console.log("term is " + term);
     return (
       <div>
-        {films.filter(searchingFor(term)).map(film => (
+        {films.filter(this.searchingFor(term)).map(film => (
           <div key={film.url}>
             <h3 className="film-name" onClick={this.handleFavourited}>
               {film.title}
