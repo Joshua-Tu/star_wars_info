@@ -49,7 +49,7 @@ class App extends Component {
   render() {
     const { films, loading, term } = this.state;
     const loadingText = <h3>Loading...</h3>;
-    console.log(films, loading);
+    console.log(films, "loading " + loading);
 
     return (
       <div className="App">

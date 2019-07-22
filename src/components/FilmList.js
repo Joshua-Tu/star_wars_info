@@ -3,7 +3,7 @@ import FilmInfo from "./FilmInfo";
 
 const searchingFor = term => {
   return x => {
-    return x.title.toLowerCase().inclues(term.toLowerCase()) || !term;
+    return x.title.toLowerCase().includes(term.toLowerCase()) || !term;
   };
 };
 
@@ -13,11 +13,11 @@ class FilmList extends Component {
   };
 
   render() {
-    const { films } = this.props;
-
+    const { films, term } = this.props;
+    console.log("term is " + term);
     return (
       <div>
-        {films.map(film => (
+        {films.filter(searchingFor(term)).map(film => (
           <div key={film.url}>
             <h3 className="film-name" onClick={this.handleFavourited}>
               {film.title}
